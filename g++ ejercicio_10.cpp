@@ -21,18 +21,12 @@ int main() {
     std::cout << "Es fin de semana? (1 = Si, 0 = No): ";
     std::cin >> finDeSemana;
 
-    // ===============================
-    // Descuento por tipo de cliente
-    // ===============================
     if (tipoCliente == 'V' || tipoCliente == 'v') {
         descuentoTotal += 0.15; // 15%
     } else {
         descuentoTotal += 0.05; // 5%
     }
 
-    // ===============================
-    // Descuento por monto (if anidado)
-    // ===============================
     if (precioCompra >= 500) {
         descuentoTotal += 0.10;
     } else {
@@ -41,9 +35,6 @@ int main() {
         }
     }
 
-    // ===============================
-    // Descuento por cupon (switch)
-    // ===============================
     switch (cupon) {
         case 'A':
         case 'a':
@@ -60,17 +51,11 @@ int main() {
         default:
             break; // sin cupon
     }
-
-    // ===============================
-    // Descuento por fin de semana
-    // ===============================
+    
     if (finDeSemana) {
         descuentoTotal += 0.05;
     }
 
-    // ===============================
-    // Limitar descuento maximo al 50%
-    // ===============================
     descuentoTotal = std::min(descuentoTotal, 0.50);
 
     double precioFinal = precioCompra * (1 - descuentoTotal);
